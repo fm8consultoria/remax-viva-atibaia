@@ -1,0 +1,135 @@
+/* Reset básico */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.5;
+  color: #0c549f;
+  background: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 4%;
+}
+
+/* Header fixo */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  padding: 14px 0;
+  border-bottom: 1px solid #e6e6e6;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.header.shrink .logo {
+  max-height: 40px;
+}
+
+:root {
+  --header-height: 88px;
+}
+
+.site-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* Logo */
+.logo {
+  max-height: 80px;
+  width: auto;
+  display: block;
+}
+
+/* Menu */
+nav.primary ul {
+  list-style: none;
+  display: flex;
+  gap: 6px;
+  margin: 0;
+}
+
+nav.primary a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #0c549f;
+  padding: 8px 16px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+nav.primary a:hover,
+nav.primary a:focus,
+nav.primary a.active {
+  background: #0c549f;
+  color: #fff;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 21px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #0c549f;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(9px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-9px);
+}
+
+/* --- MOBILE --- */
+@media (max-width: 900px) {
+  /* Menu */
+  nav.primary ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    padding: 8px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  nav.primary ul.show {
+    display: flex;
+  }
+
+  nav.primary a {
+    padding: 10px 16px;
+  }
+
+  .hamburger {
+    display: flex;
+    margin-left: auto; /* alinha à direita */
+  }
+}

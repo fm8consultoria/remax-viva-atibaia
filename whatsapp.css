@@ -1,0 +1,25 @@
+/* Botão flutuante WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 70px;
+  height: 70px;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #25D366; /* verde WhatsApp */
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float img {
+  width: 45px;
+  height: 45px;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}

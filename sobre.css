@@ -1,0 +1,98 @@
+/* Variáveis específicas da seção sobre */
+.sobre-section {
+  --sobre-primary: #de192e;   /* vermelho RE/MAX */
+  --sobre-accent: #0c549f;    /* azul */
+  --sobre-bg: #ffffff;
+  --sobre-max-width: 800px;
+  --sobre-radius: 14px;
+  --sobre-gap: 1.5rem;
+
+  padding: 3rem 1rem;
+  color: #111827;
+  background: url("images/sobre-desktop.png") center/cover no-repeat fixed;
+}
+
+/* Fundo diferente para mobile */
+@media (max-width: 768px) {
+  .sobre-section {
+    background: url("images/sobre-mobile.png") center/cover no-repeat;
+  }
+}
+
+/* Container só da seção sobre */
+.sobre-section .sobre-container {
+  width: min(96%, var(--sobre-max-width));
+  margin: 0 auto;
+}
+
+/* Cabeçalho */
+.sobre-section .sobre-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 1rem;
+  border-radius: var(--sobre-radius);
+}
+
+.sobre-section .sobre-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: var(--sobre-accent);
+}
+
+.sobre-section .tagline {
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+.sobre-section .chamada {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: var(--sobre-primary);
+}
+
+/* Grid de cards */
+.sobre-section .cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--sobre-gap);
+  justify-content: center;   /* centraliza horizontalmente */
+  max-width: 800px;          /* limite de largura do grid */
+  margin: 0 auto;            /* centraliza dentro do container */
+}
+
+/* Card */
+.sobre-section .card {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: var(--sobre-radius);
+  padding: 1.5rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.sobre-section .card h3 {
+  margin-top: 0;
+  color: var(--sobre-accent);
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.sobre-section .card p,
+.sobre-section .card ul {
+  color: #374151;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.sobre-section .card ul {
+  margin-left: 1rem;
+}
+
+/* Animação quando visível */
+.sobre-section .card.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}

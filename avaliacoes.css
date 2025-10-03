@@ -1,0 +1,54 @@
+.avaliacoes-section {
+  padding: 3rem 1rem;
+  text-align: center;
+  background: linear-gradient(135deg, #0f3d79, #1a5dbf);
+  color: #fff;
+}
+
+.carousel-container {
+  position: relative;
+  max-width: 900px;
+  margin: 2rem auto;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.card {
+  min-width: 300px;
+  margin: 0 10px;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  flex-shrink: 0;
+}
+
+.card h4 {
+  margin: 0 0 0.5rem 0;
+  color: #d62839;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: #0f3d79;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.carousel-btn.prev { left: 0; }
+.carousel-btn.next { right: 0; }
