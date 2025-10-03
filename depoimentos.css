@@ -1,0 +1,95 @@
+.depoimentos {
+    background: linear-gradient(135deg, #0f3d79 0%, #346aa6 100%);
+    color: #fff;
+    padding: 80px 20px;
+    text-align: center;
+    overflow: hidden;
+  }
+  
+  .depoimentos-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .depoimentos h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  
+  .depoimentos .intro {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+  }
+  
+  /* Carrossel */
+  .carousel {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+  }
+  
+  .carousel-track {
+    display: flex;
+    gap: 30px;
+    cursor: grab;
+    overflow-x: scroll; /* necessário para scroll manual */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+    
+  .card {
+    background: #fff;
+    color: #0f3d79;
+    border-radius: 12px;
+    padding: 25px;
+    min-width: 280px;
+    max-width: 350px;
+    flex: 0 0 auto;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    text-align: left;
+  }
+  
+  .card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 15px 0;
+  }
+  
+  .card h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 10px;
+    color: #0f3d79;
+  }
+
+  .card a {
+    color: #0f3d79;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  
+  .card a:hover {
+    color: #346aa6;
+    text-decoration: underline;
+  }  
+  
+  /* Avatar */
+  .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #0f3d79;
+  }
+  
+  /* Animação infinita */
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
