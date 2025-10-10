@@ -9,13 +9,13 @@
 
   padding: 3rem 1rem;
   color: #111827;
-  background: url("images/sobre-desktop.png") center/cover no-repeat fixed;
+  background: url("../images/sobre-desktop.png") center/cover no-repeat fixed;
 }
 
 /* Fundo diferente para mobile */
 @media (max-width: 768px) {
   .sobre-section {
-    background: url("images/sobre-mobile.png") center/cover no-repeat;
+    background: url("../images/sobre-mobile.png") center/cover no-repeat;
   }
 }
 
