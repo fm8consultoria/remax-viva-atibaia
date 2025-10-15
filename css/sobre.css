@@ -3,7 +3,7 @@
   --sobre-primary: #de192e;   /* vermelho RE/MAX */
   --sobre-accent: #0c549f;    /* azul */
   --sobre-bg: #ffffff;
-  --sobre-max-width: 800px;
+  --sobre-max-width: 1200px;
   --sobre-radius: 14px;
   --sobre-gap: 1.5rem;
 
@@ -54,11 +54,12 @@
 /* Grid de cards */
 .sobre-section .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--sobre-gap);
   justify-content: center;   /* centraliza horizontalmente */
-  max-width: 800px;          /* limite de largura do grid */
+  max-width: 1200px;         /* limite de largura do grid */
   margin: 0 auto;            /* centraliza dentro do container */
+  align-items: start;        /* alinha cards ao topo */
 }
 
 /* Card */
@@ -71,6 +72,9 @@
   opacity: 0;
   transform: translateY(40px);
   transition: all 0.8s ease;
+  height: 100%;             /* altura total do grid */
+  display: flex;            /* flexbox para alinhamento */
+  flex-direction: column;   /* direção vertical */
 }
 
 .sobre-section .card h3 {
@@ -78,6 +82,7 @@
   color: var(--sobre-accent);
   font-size: 1.2rem;
   margin-bottom: 0.75rem;
+  flex-shrink: 0;           /* não encolhe o título */
 }
 
 .sobre-section .card p,
@@ -85,14 +90,26 @@
   color: #374151;
   font-size: 0.95rem;
   line-height: 1.5;
+  margin-top: 0;            /* remove margem superior */
+  flex-grow: 1;             /* ocupa espaço disponível */
 }
 
 .sobre-section .card ul {
   margin-left: 1rem;
+  margin-top: 0;            /* remove margem superior */
+  padding-top: 0;           /* remove padding superior */
 }
 
 /* Animação quando visível */
 .sobre-section .card.reveal.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Responsivo - Mobile */
+@media (max-width: 768px) {
+  .sobre-section .cards-grid {
+    grid-template-columns: 1fr;  /* 1 coluna no mobile */
+    gap: 1rem;
+  }
 }

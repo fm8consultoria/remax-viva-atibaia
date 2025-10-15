@@ -9,6 +9,8 @@
   .depoimentos-container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
+    overflow: visible;
   }
   
   .depoimentos h2 {
@@ -21,57 +23,260 @@
     font-size: 1.1rem;
     margin-bottom: 40px;
   }
-  
-  /* Carrossel */
-  .carousel {
-    overflow: hidden;
-    width: 100%;
-    position: relative;
+
+  /* Destaque da Rede Internacional */
+  .network-highlight {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 30px auto 40px auto;
+    max-width: 1200px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .network-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .network-text strong {
+    font-size: 1.3rem;
+    color: #ffd700;
+    display: block;
+    margin-bottom: 10px;
   }
   
-  .carousel-track {
+  /* Slick Carousel */
+  .depoimentos-slider {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 60px;
+    overflow: visible;
+  }
+  
+  .depoimentos-slider .slick-track {
     display: flex;
-    gap: 30px;
-    cursor: grab;
-    overflow-x: scroll; /* necessário para scroll manual */
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
+    align-items: stretch;
+  }
+  
+  .depoimentos-slider .slick-slide {
+    display: flex;
+    align-items: stretch;
+    flex: 1;
+    margin: 0 10px;
+  }
+  
+  .depoimentos-slider .slick-list {
+    margin: 0 -10px;
+  }
+  
+  .depoimentos-slider .slick-dots {
+    bottom: -50px;
+    text-align: center;
+    width: 100%;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+  
+  .depoimentos-slider .slick-dots li {
+    display: inline-block;
+    margin: 0 5px;
+  }
+  
+  .depoimentos-slider .slick-dots li button:before {
+    color: #fff;
+    font-size: 12px;
+  }
+  
+  .depoimentos-slider .slick-dots li.slick-active button:before {
+    color: #ffd700;
+  }
+  
+  /* Setas do slider */
+  .depoimentos-slider .slick-prev,
+  .depoimentos-slider .slick-next {
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .depoimentos-slider .slick-prev:hover,
+  .depoimentos-slider .slick-next:hover {
+    background: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .depoimentos-slider .slick-prev:before,
+  .depoimentos-slider .slick-next:before {
+    color: #0f3d79;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .depoimentos-slider .slick-prev {
+    left: 15px;
+  }
+  
+  .depoimentos-slider .slick-next {
+    right: 15px;
   }
     
   .card {
     background: #fff;
     color: #0f3d79;
-    border-radius: 12px;
-    padding: 25px;
-    min-width: 280px;
-    max-width: 350px;
-    flex: 0 0 auto;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    border-radius: 15px;
+    padding: 30px;
+    min-width: 0;
+    max-width: none;
+    flex: 1;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
     text-align: left;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid rgba(15, 61, 121, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
   }
   
   .card p {
     font-size: 0.95rem;
-    line-height: 1.5;
+    line-height: 1.6;
     margin: 15px 0;
+    color: #333;
+  }
+  
+  .card .stars {
+    margin-bottom: 10px;
+    display: flex;
+    gap: 3px;
+  }
+  
+  .card .star {
+    font-size: 18px;
+    color: #ffd700;
+    text-shadow: 0 1px 3px rgba(255, 215, 0, 0.5);
+    transition: transform 0.2s ease;
+  }
+  
+  .card .star:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Botão Leia mais */
+  .read-more {
+    color: #0f3d79;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  
+  .read-more:hover {
+    color: #346aa6;
+  }
+  
+  /* Modal */
+  .depoimento-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  }
+  
+  .modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .modal-close:hover {
+    color: #000;
+  }
+  
+  .modal-content .stars {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 3px;
+  }
+  
+  .modal-content .star {
+    font-size: 20px;
+    color: #ffd700;
+    text-shadow: 0 1px 3px rgba(255, 215, 0, 0.5);
+  }
+  
+  .modal-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
   }
   
   .card h4 {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
     margin-top: 10px;
     color: #0f3d79;
+    margin-bottom: 10px;
   }
 
   .card a {
     color: #0f3d79;
     font-weight: 600;
     text-decoration: none;
+    margin-top: auto;
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(15, 61, 121, 0.1);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
   }
   
   .card a:hover {
-    color: #346aa6;
-    text-decoration: underline;
+    color: #fff;
+    background: #0f3d79;
+    text-decoration: none;
+    transform: translateY(-2px);
   }  
   
   /* Avatar */
@@ -91,5 +296,11 @@
     }
     to {
       transform: translateX(-50%);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .depoimentos-slider {
+      padding: 0;
     }
   }

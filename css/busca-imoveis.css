@@ -1,0 +1,473 @@
+/* Seção Busca e Filtros de Imóveis */
+.busca-imoveis {
+  background-color: #f8f9fa;
+  padding: 80px 0;
+  position: relative;
+  min-height: 100vh; /* Garantir que a seção seja visível */
+}
+
+.busca-imoveis h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.busca-imoveis h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(135deg, #0c549f, #1e88e5);
+  border-radius: 2px;
+}
+
+/* Filtros */
+.filtros-container {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  align-items: end;
+}
+
+.filtro-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.filtro-group label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.filtro-select {
+  padding: 12px 15px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #495057;
+  background: white;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.filtro-select:focus {
+  outline: none;
+  border-color: #0c549f;
+  box-shadow: 0 0 0 3px rgba(12, 84, 159, 0.1);
+}
+
+.filtro-actions {
+  display: flex;
+  gap: 15px;
+  grid-column: 1 / -1;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.btn-filtro {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.btn-limpar {
+  background: #6c757d;
+  color: white;
+}
+
+.btn-limpar:hover {
+  background: #5a6268;
+  transform: translateY(-2px);
+}
+
+.btn-aplicar {
+  background: linear-gradient(135deg, #0c549f, #1e88e5);
+  color: white;
+}
+
+.btn-aplicar:hover {
+  background: linear-gradient(135deg, #0a4a8a, #1a7bd9);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(12, 84, 159, 0.3);
+}
+
+/* Resultados */
+.resultados-container {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.resultados-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #f8f9fa;
+}
+
+#total-resultados {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.ordenacao {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ordenacao label {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 0.9rem;
+}
+
+/* Lista de Imóveis */
+.lista-imoveis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.imovel-item {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #e9ecef;
+}
+
+.imovel-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.imovel-item-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.imovel-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.imovel-item:hover .imovel-item-image img {
+  transform: scale(1.05);
+}
+
+.imovel-item-tag {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: linear-gradient(135deg, #0c549f, #1e88e5);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.imovel-item-actions {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+}
+
+.imovel-item-action {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.imovel-item-action:hover {
+  background: white;
+  transform: scale(1.1);
+}
+
+.imovel-item-action i {
+  color: #2c3e50;
+  font-size: 14px;
+}
+
+.imovel-item-details {
+  padding: 20px;
+}
+
+.imovel-item-price {
+  margin-bottom: 10px;
+}
+
+.imovel-item-price-main {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 2px;
+}
+
+.imovel-item-price-secondary {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  font-weight: 500;
+}
+
+.imovel-item-type {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.imovel-item-location {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  margin-bottom: 15px;
+}
+
+.imovel-item-features {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.imovel-item-feature {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.85rem;
+  color: #5a6c7d;
+  font-weight: 500;
+}
+
+.imovel-item-feature i {
+  color: #0c549f;
+  font-size: 14px;
+}
+
+/* Ícones específicos para cada tipo de característica */
+.imovel-item-feature .fa-bed {
+  color: #0c549f;
+}
+
+.imovel-item-feature .fa-bath {
+  color: #0c549f;
+}
+
+.imovel-item-feature .fa-home {
+  color: #0c549f;
+}
+
+.imovel-item-feature .fa-car {
+  color: #0c549f;
+}
+
+.imovel-item-feature .fa-expand-arrows-alt {
+  color: #0c549f;
+}
+
+.imovel-item-actions-bottom {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-ver-detalhes {
+  flex: 1;
+  background: linear-gradient(135deg, #0c549f, #1e88e5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.btn-ver-detalhes:hover {
+  background: linear-gradient(135deg, #0a4a8a, #1a7bd9);
+  transform: translateY(-2px);
+}
+
+.btn-contato {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.btn-contato:hover {
+  background: #218838;
+  transform: translateY(-2px);
+}
+
+/* Carregar Mais */
+.carregar-mais-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.btn-carregar-mais {
+  background: linear-gradient(135deg, #0c549f, #1e88e5);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.btn-carregar-mais:hover {
+  background: linear-gradient(135deg, #0a4a8a, #1a7bd9);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(12, 84, 159, 0.3);
+}
+
+/* Estado Vazio */
+.lista-vazia {
+  text-align: center;
+  padding: 60px 20px;
+  color: #7f8c8d;
+}
+
+.lista-vazia i {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  color: #dee2e6;
+}
+
+.lista-vazia h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #495057;
+}
+
+.lista-vazia p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+/* Loading */
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #7f8c8d;
+}
+
+.loading i {
+  font-size: 2rem;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .busca-imoveis {
+    padding: 60px 0;
+  }
+  
+  .busca-imoveis h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  .filtros-container {
+    padding: 20px;
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .filtro-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .resultados-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  
+  .lista-imoveis {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .imovel-item-features {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .imovel-item-actions-bottom {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  
+  .filtros-container {
+    padding: 15px;
+  }
+  
+  .resultados-container {
+    padding: 20px;
+  }
+  
+  .imovel-item-details {
+    padding: 15px;
+  }
+  
+  .imovel-item-price-main {
+    font-size: 1.2rem;
+  }
+}

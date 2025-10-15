@@ -1,0 +1,29 @@
+{
+  "name": "remax-imoveis-scraper",
+  "version": "1.0.0",
+  "description": "Scraper para extrair dados de imóveis da RE/MAX",
+  "main": "imoveis-scraper.js",
+  "scripts": {
+    "start": "node imoveis-scraper.js",
+    "scrape": "node imoveis-scraper.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "scraper",
+    "puppeteer",
+    "imoveis",
+    "remax",
+    "real-estate"
+  ],
+  "author": "RE/MAX VIVA Atibaia",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^21.5.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

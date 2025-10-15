@@ -10,15 +10,24 @@
   <title>RE/MAX VIVA I & II Atibaia | Especialista em Venda e Locação de Casas, Apartamentos e Imóveis Comerciais</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="css/button.css">
   <link rel="stylesheet" href="css/busca-imoveis.css">
   <link rel="stylesheet" href="css/contato.css">
   <link rel="stylesheet" href="css/depoimentos.css">
   <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/imoveis.css">
+  <link rel="stylesheet" href="css/busca-imoveis.css">
   <link rel="stylesheet" href="css/localizacao.css">
   <link rel="stylesheet" href="css/nav.css">
   <link rel="stylesheet" href="css/sobre.css">
   <link rel="stylesheet" href="css/whatsapp.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/destaque-especiais.css">
+  
+  <!-- Slick Carousel CSS -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 </head>  
 <body>
 
@@ -37,9 +46,10 @@
       <nav class="primary" aria-label="Menu principal">
         <ul>
           <li><a href="#home">Home</a></li>
+          <li><a href="#busca-imoveis">Buscar Imóveis</a></li>
+          <li><a href="#imoveis">Destaques</a></li>
           <li><a href="#sobre-remax-viva">Sobre</a></li>
-          <li><a href="#imoveis">Imóveis</a></li>
-          <li><a href="#avaliacoes">Depoimentos</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
           <li><a href="#localizacoes">Contato</a></li>          
         </ul>
       </nav>
@@ -61,11 +71,313 @@
         <a href="#imoveis" class="hero-btn">Encontre o seu imóvel</a>
       </div>
     </div>
-  </section>  
+  </section> 
+
+  <!-- Seção Busca e Filtros de Imóveis -->
+  <section id="busca-imoveis" class="busca-imoveis">
+    <div class="container">
+      <h2>Encontre seu imóvel ideal</h2>
+      
+      <!-- Filtros -->
+      <div class="filtros-container">
+        <div class="filtro-group">
+          <label for="tipo-imovel">Tipo de Imóvel</label>
+          <select id="tipo-imovel" class="filtro-select">
+            <option value="">Todos os tipos</option>
+            <option value="Apartamento">Apartamento</option>
+            <option value="Casa">Casa</option>
+            <option value="Terreno">Terreno</option>
+            <option value="Casa de Condomínio">Casa de Condomínio</option>
+            <option value="Chácara/Sítio">Chácara/Sítio</option>
+            <option value="Comercial">Comercial</option>
+            <option value="Fazenda">Fazenda</option>
+          </select>
+        </div>
+        
+        <div class="filtro-group">
+          <label for="preco-min">Preço Mínimo</label>
+          <select id="preco-min" class="filtro-select">
+            <option value="">Qualquer</option>
+            <option value="100000">R$ 100.000</option>
+            <option value="200000">R$ 200.000</option>
+            <option value="300000">R$ 300.000</option>
+            <option value="500000">R$ 500.000</option>
+            <option value="700000">R$ 700.000</option>
+            <option value="1000000">R$ 1.000.000</option>
+          </select>
+        </div>
+        
+        <div class="filtro-group">
+          <label for="preco-max">Preço Máximo</label>
+          <select id="preco-max" class="filtro-select">
+            <option value="">Qualquer</option>
+            <option value="300000">R$ 300.000</option>
+            <option value="500000">R$ 500.000</option>
+            <option value="700000">R$ 700.000</option>
+            <option value="1000000">R$ 1.000.000</option>
+            <option value="1500000">R$ 1.500.000</option>
+            <option value="2000000">R$ 2.000.000</option>
+          </select>
+        </div>
+        
+        <div class="filtro-group">
+          <label for="quartos">Quartos</label>
+          <select id="quartos" class="filtro-select">
+            <option value="">Qualquer</option>
+            <option value="1">1 quarto</option>
+            <option value="2">2 quartos</option>
+            <option value="3">3 quartos</option>
+            <option value="4">4 quartos</option>
+            <option value="5">5+ quartos</option>
+          </select>
+        </div>
+        
+        <div class="filtro-group">
+          <label for="banheiros">Banheiros</label>
+          <select id="banheiros" class="filtro-select">
+            <option value="">Qualquer</option>
+            <option value="1">1 banheiro</option>
+            <option value="2">2 banheiros</option>
+            <option value="3">3 banheiros</option>
+            <option value="4">4+ banheiros</option>
+          </select>
+        </div>
+        
+        <div class="filtro-group">
+          <label for="area">Área (m²)</label>
+          <select id="area" class="filtro-select">
+            <option value="">Qualquer</option>
+            <option value="50">Até 50m²</option>
+            <option value="100">Até 100m²</option>
+            <option value="150">Até 150m²</option>
+            <option value="200">Até 200m²</option>
+            <option value="300">Até 300m²</option>
+            <option value="500">Até 500m²</option>
+            <option value="1000">Até 1000m²</option>
+          </select>
+        </div>
+        
+        <div class="filtro-group">
+          <label for="cidade">Cidade</label>
+          <select id="cidade" class="filtro-select">
+            <option value="">Todas as cidades</option>
+            <option value="Atibaia">Atibaia</option>
+            <option value="Bom Jesus dos Perdões">Bom Jesus dos Perdões</option>
+            <option value="Mairiporã">Mairiporã</option>
+            <option value="Nazaré Paulista">Nazaré Paulista</option>
+            <option value="Bueno Brandão">Bueno Brandão</option>
+          </select>
+        </div>
+        <div class="filtro-group">
+          <label for="cidade">Ações</label>
+          <div class="filtro-actions">
+            <button id="limpar-filtros" class="btn-filtro btn-limpar">Limpar</button>
+            <button id="aplicar-filtros" class="btn-filtro btn-aplicar">Buscar</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Resultados -->
+      <div class="resultados-container">
+        <div class="resultados-header">
+          <span id="total-resultados">0 imóveis encontrados</span>
+          <div class="ordenacao">
+            <label for="ordenar-por">Ordenar por:</label>
+            <select id="ordenar-por" class="filtro-select">
+              <option value="preco-asc">Menor preço</option>
+              <option value="preco-desc">Maior preço</option>
+              <option value="area-desc">Maior área</option>
+              <option value="recente">Mais recente</option>
+            </select>
+          </div>
+        </div>
+        
+        <div id="lista-imoveis" class="lista-imoveis">
+          <!-- Imóveis serão carregados aqui via JavaScript -->
+        </div>
+        
+        <div id="carregar-mais-container" class="carregar-mais-container" style="display: none;">
+          <button id="carregar-mais" class="btn-carregar-mais">Carregar Mais Imóveis</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Imóveis em Destaque Especiais -->
+  <section class="imoveis-destaque-especiais">
+    <div class="container">
+      <h2>Imóveis em Destaque</h2>
+      
+      <div class="destaque-grid">
+        <div class="destaque-item">
+          <div class="destaque-image">
+            <img src="https://remax.azureedge.net/userimages/69/LargeWM/L_1ed8c4ea-e8e0-44e0-9621-2c249a870fa8.jpg" alt="Casa de Condomínio - Rua Lantana" loading="lazy">
+            <div class="destaque-tag">Casa de Condomínio</div>
+          </div>
+          <div class="destaque-content">
+            <h3>Casa de Condomínio - Rua Lantana</h3>
+            <p class="destaque-location">115 Rua Lantana, Atibaia - SP</p>
+            <p class="destaque-price">R$ 2.689.900</p>
+            <p class="destaque-description">Excelente casa de condomínio em localização privilegiada, com área de lazer completa e segurança 24h.</p>
+            <div class="destaque-features">
+              <span><i class="fas fa-bed"></i> 4 quartos</span>
+              <span><i class="fas fa-bath"></i> 2 banheiros</span>
+              <span><i class="fas fa-car"></i> 3 vagas</span>
+            </div>
+            <div class="destaque-actions">
+              <a href="https://www.remax.com.br/pt-br/imoveis/casa-de-condominio/venda/atibaia/115-rua-lantana/690471003-104" target="_blank" class="btn-destaque">Ver Detalhes</a>
+              <a href="https://api.whatsapp.com/send?phone=5511975673838&text=Olá, tenho interesse no imóvel da Rua Lantana" target="_blank" class="btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="destaque-item">
+          <div class="destaque-image">
+            <img src="https://remax.azureedge.net/userimages/69/LargeWM/L_2404abbf-39e2-447c-a557-56309530ce3e.jpg" alt="Casa de Condomínio - Bom Jesus dos Perdões" loading="lazy">
+            <div class="destaque-tag">Casa de Condomínio</div>
+          </div>
+          <div class="destaque-content">
+            <h3>Casa de Condomínio - Bom Jesus dos Perdões</h3>
+            <p class="destaque-location">Bom Jesus dos Perdões - SP</p>
+            <p class="destaque-price">R$ 995.000</p>
+            <p class="destaque-description">Casa moderna em condomínio fechado, com acabamento de primeira qualidade e área verde preservada.</p>
+            <div class="destaque-features">
+              <span><i class="fas fa-bed"></i> 1 quarto</span>
+              <span><i class="fas fa-bath"></i> 1 banheiro</span>
+              <span><i class="fas fa-home"></i> 190m²</span>
+            </div>
+            <div class="destaque-actions">
+              <a href="https://www.remax.com.br/pt-br/imoveis/casa-de-condominio/venda/bom-jesus-dos-perdoes/534-rua-jatoba/690471058-47" target="_blank" class="btn-destaque">Ver Detalhes</a>
+              <a href="https://api.whatsapp.com/send?phone=5511975673838&text=Olá, tenho interesse no imóvel de Bom Jesus dos Perdões" target="_blank" class="btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Imóveis em Destaque -->
+  <!--section id="imoveis" class="imoveis-destaque">
+    <div class="container">
+      <h2>Últimos imóveis vendidos</h2>
+      
+      <div class="imoveis-slider">
+        <div class="imovel-card">
+          <div class="imovel-image">
+            <img src="https://via.placeholder.com/300x200/4a90e2/ffffff?text=Apartamento+Moderno" alt="Apartamento Moderno">
+            <div class="imovel-tag">Em breve</div>
+            <div class="imovel-actions">
+              <button class="action-btn"><i class="fas fa-heart"></i></button>
+              <button class="action-btn"><i class="fas fa-bookmark"></i></button>
+            </div>
+            <div class="remax-overlay">RE/MAX</div>
+          </div>
+          <div class="imovel-details">
+            <div class="imovel-price">
+              <span class="price-main">R$ 1.002.000</span>
+              <span class="price-secondary">$ 181.590,81</span>
+            </div>
+            <div class="imovel-type">Apartamento</div>
+            <div class="imovel-location">Santa Catarina, Tubarão</div>
+            <div class="imovel-features">
+              <span class="feature"><i class="fas fa-bed"></i> 1</span>
+              <span class="feature"><i class="fas fa-bath"></i> 1</span>
+              <span class="feature"><i class="fas fa-home"></i> 11m²</span>
+              <span class="feature"><i class="fas fa-expand-arrows-alt"></i> 185m²</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="imovel-card">
+          <div class="imovel-image">
+            <img src="https://via.placeholder.com/300x200/2ecc71/ffffff?text=Residencial+Coastal" alt="Residencial Coastal">
+            <div class="imovel-tag">Em breve</div>
+            <div class="imovel-actions">
+              <button class="action-btn"><i class="fas fa-heart"></i></button>
+              <button class="action-btn"><i class="fas fa-bookmark"></i></button>
+            </div>
+            <div class="remax-overlay">RE/MAX</div>
+          </div>
+          <div class="imovel-details">
+            <div class="imovel-price">
+              <span class="price-main">R$ 754.000</span>
+              <span class="price-secondary">$ 136.646,18</span>
+            </div>
+            <div class="imovel-type">Apartamento</div>
+            <div class="imovel-location">Bahia, Salvador</div>
+            <div class="imovel-features">
+              <span class="feature"><i class="fas fa-bed"></i> 1</span>
+              <span class="feature"><i class="fas fa-bath"></i> 1</span>
+              <span class="feature"><i class="fas fa-home"></i> 4m²</span>
+              <span class="feature"><i class="fas fa-expand-arrows-alt"></i> 35m²</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="imovel-card">
+          <div class="imovel-image">
+            <img src="https://via.placeholder.com/300x200/e74c3c/ffffff?text=Condomínio+Premium" alt="Condomínio Premium">
+            <div class="imovel-tag">Em breve</div>
+            <div class="imovel-actions">
+              <button class="action-btn"><i class="fas fa-heart"></i></button>
+              <button class="action-btn"><i class="fas fa-bookmark"></i></button>
+            </div>
+            <div class="remax-overlay">RE/MAX</div>
+          </div>
+          <div class="imovel-details">
+            <div class="imovel-price">
+              <span class="price-main">R$ 699.000</span>
+              <span class="price-secondary">$ 126.678,62</span>
+            </div>
+            <div class="imovel-type">Apartamento</div>
+            <div class="imovel-location">Minas Gerais, Juiz de Fora</div>
+            <div class="imovel-features">
+              <span class="feature"><i class="fas fa-bed"></i> 2</span>
+              <span class="feature"><i class="fas fa-bath"></i> 3</span>
+              <span class="feature"><i class="fas fa-home"></i> 85m²</span>
+              <span class="feature"><i class="fas fa-expand-arrows-alt"></i> 85m²</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="imovel-card">
+          <div class="imovel-image">
+            <img src="https://via.placeholder.com/300x200/9b59b6/ffffff?text=Residencial+Elegante" alt="Residencial Elegante">
+            <div class="imovel-tag">Em breve</div>
+            <div class="imovel-actions">
+              <button class="action-btn"><i class="fas fa-heart"></i></button>
+              <button class="action-btn"><i class="fas fa-bookmark"></i></button>
+            </div>
+            <div class="remax-overlay">RE/MAX</div>
+          </div>
+          <div class="imovel-details">
+            <div class="imovel-price">
+              <span class="price-main">R$ 440.000</span>
+              <span class="price-secondary">$ 79.740,48</span>
+            </div>
+            <div class="imovel-type">Apartamento</div>
+            <div class="imovel-location">Minas Gerais, Juiz de Fora</div>
+            <div class="imovel-features">
+              <span class="feature"><i class="fas fa-bed"></i> 2</span>
+              <span class="feature"><i class="fas fa-bath"></i> 2</span>
+              <span class="feature"><i class="fas fa-home"></i> 7m²</span>
+              <span class="feature"><i class="fas fa-expand-arrows-alt"></i> 61m²</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section-->
+
+   
 
   <!-- Sobre a Remax Viva -->
   <section id="sobre-remax-viva" class="sobre-section" aria-labelledby="sobre-title">
-    <div class="sobre-container">
+    <div class="container">
       <header class="sobre-header">
         <h2 id="sobre-title">RE/MAX VIVA — Atibaia, SP</h2>
         <p class="tagline">CI nº 35692-J | CRECI nº 35692 · 🏅 20 anos em Atibaia</p>
@@ -77,7 +389,7 @@
         <div class="card reveal">
           <h3>Quem somos</h3>
           <p>
-            A RE/MAX VIVA atua no mercado imobiliário de Atibaia e região desde 2011,
+            A RE/MAX VIVA atua no mercado imobiliário de Atibaia e região há 14 anos,
             oferecendo atendimento especializado em venda, locação e administração
             de imóveis residenciais, terrenos, condomínios e empreendimentos comerciais.
           </p>
@@ -97,8 +409,6 @@
           <ul>
             <li>Venda e locação de casas, apartamentos e terrenos</li>
             <li>Imóveis de alto padrão e empreendimentos industriais/comerciais</li>
-            <li>Franquias e suporte a corretores</li>
-            <li>Equipe multilíngue: Português, Inglês e Espanhol</li>
           </ul>
         </div>
 
@@ -107,81 +417,78 @@
           <ul>
             <li>Rede internacional RE/MAX — alcance global</li>
             <li>Equipe local com histórico de vendas rápidas</li>
-            <li>Marketing digital e presença online profissional</li>
+            <li>Estratégias digitais e fortalecimento da presença online</li>
+            <li>Vendemos seu imóvel com eficiência</li>
           </ul>
         </div>
 
-        <!-- Novo Card -->
-        <div class="card reveal">
-          <h3>Benefícios RE/MAX</h3>
-          <p>
-            A RE/MAX VIVA oferece credibilidade consolidada no mercado, suporte de uma rede
-            internacional presente em mais de 110 países, ampla divulgação em múltiplos canais
-            e um atendimento personalizado que coloca você no centro de todo o processo de compra,
-            venda ou locação do seu imóvel.
-          </p>
-        </div>
       </div>
     </div>
   </section>
 
   <!-- Seção Prova Social e Credibilidade -->
   <section id="depoimentos" class="depoimentos">
-    <div class="depoimentos-container">
+    <div class="container">
       <h2>O que estão falando da RE/MAX VIVA - Atibaia?</h2>
       <p class="intro">
         Nossos resultados falam por si!
       </p>
+      
+      <!-- Destaque da Rede Internacional -->
+      <div class="network-highlight">
+        <p class="network-text">
+          <strong>Parte da maior rede imobiliária do mundo</strong><br>
+          Presente em mais de 110 países, a RE/MAX oferece credibilidade consolidada no mercado, 
+          ampla divulgação em múltiplos canais e um atendimento personalizado que coloca você 
+          no centro de todo o processo de compra, venda ou locação do seu imóvel.
+        </p>
+      </div>
 
-      <!-- Carrossel -->
-      <div class="carousel">
-        <div class="carousel-track">
+      <!-- Carrossel Slick -->
+      <div class="depoimentos-slider">
+        <div class="card">
+          <h4>Fabricio Serafim</h4>
+          <p>⭐⭐⭐⭐⭐
+          <br>"Pessoal é super profissional, fui atendido pelos corretores Iara e Jean, ótimos e muito gentis. A parte Adm da Remax também é excelente, muito organizada e seguem todos os ritos necessários para dar segurança e garantir uma boa negociação para ambas partes. Jordana muito competente e ágil nas demandas. Fiquei muito satisfeito e faria negócios mais vezes."</p>
+          <a href="https://maps.app.goo.gl/HAgtLrNydP9SLvJY7" target="_blank" rel="noopener noreferrer">
+            Abrir avaliação no Google Maps
+          </a>
+        </div>
 
-          <div class="card">
-            <h4>Fabricio Serafim</h4>
-            <p>⭐⭐⭐⭐⭐
-            <br>"Pessoal é super profissional, fui atendido pelos corretores Iara e Jean, ótimos e muito gentis. A parte Adm da Remax também é excelente, muito organizada e seguem todos os ritos necessários para dar segurança e garantir uma boa negociação para ambas partes. Jordana muito competente e ágil nas demandas. Fiquei muito satisfeito e faria negócios mais vezes."</p>
-            <a href="https://maps.app.goo.gl/HAgtLrNydP9SLvJY7" target="_blank" rel="noopener noreferrer">
-              Abrir avaliação no Google Maps
-            </a>
-          </div>
+        <div class="card">
+          <h4>Claudio Ragaini</h4>
+          <p>⭐⭐⭐⭐⭐
+          <br>"Finalizamos recentemente compra de imóvel, tendo parte do pagamento sendo efetivado através de carta de consórcio. O processo foi conduzido com muito brilhantismo e profissionalismo pela Srta Jordana, que demosntrou extrema amabilidade, paciência e principlamente conhecimento técnico e 100% de comprometimento em nos auxiliar e conduzir ao êxito a concretização deste negócio. Ficamos, eu e minha esposa encantados com o atendimento da Jordana e gostaríamos de agradecer e recomendar a Remax pelos excelentes profissionais que compoem seu quadro. Aqui vai também nosso agradecimento à Lucia, espetacular Corretora que também nos acessorou. Enfim, REMAX, eu recomendo!"</p>
+          <a href="https://maps.app.goo.gl/u8adHJJxxqT8AWJ16" target="_blank" rel="noopener noreferrer">
+            Abrir avaliação no Google Maps
+          </a>
+        </div>
 
-          <div class="card">
-            <h4>Claudio Ragaini</h4>
-            <p>⭐⭐⭐⭐⭐
-            <br>"Finalizamos recentemente compra de imóvel, tendo parte do pagamento sendo efetivado através de carta de consórcio. O processo foi conduzido com muito brilhantismo e profissionalismo pela Srta Jordana, que demosntrou extrema amabilidade, paciência e principlamente conhecimento técnico e 100% de comprometimento em nos auxiliar e conduzir ao êxito a concretização deste negócio. Ficamos, eu e minha esposa encantados com o atendimento da Jordana e gostaríamos de agradecer e recomendar a Remax pelos excelentes profissionais que compoem seu quadro. Aqui vai também nosso agradecimento à Lucia, espetacular Corretora que também nos acessorou. Enfim, REMAX, eu recomendo!"</p>
-            <a href="https://maps.app.goo.gl/u8adHJJxxqT8AWJ16" target="_blank" rel="noopener noreferrer">
-              Abrir avaliação no Google Maps
-            </a>
-          </div>
+        <div class="card">
+          <h4>Rodrigo Maffessoni</h4>
+          <p>⭐⭐⭐⭐⭐
+          <br>"Imobiliária Excelente!!! Realizei Compra e Venda de imóveis com as Corretoras Carolina Sandoval e Lúcia Mazoline e só tenho à agradecer pelo perfeito atendimento. Além de serem ótimas pessoas, são excelentes profissionais! Recomendo sem dúvidas a Imobiliaria Remax!"</p>
+          <a href="https://maps.app.goo.gl/jFr7p7S3L8Vd96P9A" target="_blank" rel="noopener noreferrer">
+            Abrir avaliação no Google Maps
+          </a>
+        </div>
 
-          <div class="card">
-            <h4>Rodrigo Maffessoni</h4>
-            <p>⭐⭐⭐⭐⭐
-            <br>"Imobiliária Excelente!!! Realizei Compra e Venda de imóveis com as Corretoras Carolina Sandoval e Lúcia Mazoline e só tenho à agradecer pelo perfeito atendimento. Além de serem ótimas pessoas, são excelentes profissionais! Recomendo sem dúvidas a Imobiliaria Remax!"</p>
-            <a href="https://maps.app.goo.gl/jFr7p7S3L8Vd96P9A" target="_blank" rel="noopener noreferrer">
-              Abrir avaliação no Google Maps
-            </a>
-          </div>
+        <div class="card">
+          <h4>Sylvia Christina</h4>
+          <p>⭐⭐⭐⭐⭐
+          <br>"Imobiliária muito confiável e profissionais ágeis e dispostos a ajudar, sempre dando feedback a respeito de anúncios, visitas e todos os detalhes do trabalho que desenvolvem com muita transparência. Um agradecimento muito especial aos corretores Ulisses e Maira que não mediram esforços para que a venda fosse realizada em apenas 45 dias, sempre gentis e disponíveis para ajudar."</p>
+          <a href="https://maps.app.goo.gl/WT2VEAe6t2YuuWJDA" target="_blank" rel="noopener noreferrer">
+            Abrir avaliação no Google Maps
+          </a>
+        </div>
 
-          <div class="card">
-            <h4>Sylvia Christina</h4>
-            <p>⭐⭐⭐⭐⭐
-            <br>"Imobiliária muito confiável e profissionais ágeis e dispostos a ajudar, sempre dando feedback a respeito de anúncios, visitas e todos os detalhes do trabalho que desenvolvem com muita transparência. Um agradecimento muito especial aos corretores Ulisses e Maira que não mediram esforços para que a venda fosse realizada em apenas 45 dias, sempre gentis e disponíveis para ajudar."</p>
-            <a href="https://maps.app.goo.gl/WT2VEAe6t2YuuWJDA" target="_blank" rel="noopener noreferrer">
-              Abrir avaliação no Google Maps
-            </a>
-          </div>
-
-          <div class="card">
-            <h4>Careimi Ludwig</h4>
-            <p>⭐⭐⭐⭐⭐
-            <br>"Já tive 2 experiências muito positivas com a equipe Martins & Troccoli da RE/MAX Viva de Atibaia (SP): uma em 2022 e agora em 2023. Assinei contrato de exclusividade nos dois momentos e tive todo o apoio para realizar a venda dos dois imóveis. Desde o estudo de mercado e avaliação do imóvel e seu preço, produção de fotos e vídeo, relatórios sobre estratégias de marketing,  feedback das visitas e a venda dos imóveis. Se procura profissionalismo, atendimento personalizado e concretização de negócio, RE/MAX Viva é a imobiliária para quem procura imóveis em Atibaia(SP). Recomendo e recomendarei, sempre!"</p>
-            <a href="https://maps.app.goo.gl/516cZwbbcoaQVUbBA" target="_blank" rel="noopener noreferrer">
-              Abrir avaliação no Google Maps
-            </a>
-          </div>
-
+        <div class="card">
+          <h4>Careimi Ludwig</h4>
+          <p>⭐⭐⭐⭐⭐
+          <br>"Já tive 2 experiências muito positivas com a equipe Martins & Troccoli da RE/MAX Viva de Atibaia (SP): uma em 2022 e agora em 2023. Assinei contrato de exclusividade nos dois momentos e tive todo o apoio para realizar a venda dos dois imóveis. Desde o estudo de mercado e avaliação do imóvel e seu preço, produção de fotos e vídeo, relatórios sobre estratégias de marketing,  feedback das visitas e a venda dos imóveis. Se procura profissionalismo, atendimento personalizado e concretização de negócio, RE/MAX Viva é a imobiliária para quem procura imóveis em Atibaia(SP). Recomendo e recomendarei, sempre!"</p>
+          <a href="https://maps.app.goo.gl/516cZwbbcoaQVUbBA" target="_blank" rel="noopener noreferrer">
+            Abrir avaliação no Google Maps
+          </a>
         </div>
       </div>
 
@@ -195,31 +502,33 @@
 
   <!-- Seção de Localizações RE/MAX VIVA -->
   <section id="localizacoes" class="localizacoes">
-    <div class="localizacoes-intro">
-      <h2>Onde nos encontrar</h2>
-      <p>Visite nossos escritórios em Atibaia, SP. Atendimento especializado e equipe pronta para ajudar você a encontrar o imóvel ideal.</p>
-    </div>
-
-    <div class="localizacoes-locais">
-      <div class="local-grid">
-        <!-- RE/MAX VIVA I -->
-        <div class="local-card">
-          <h3>RE/MAX VIVA I</h3>
-          <p>Alameda Professor Lucas Nogueira Garcez, 3972 - Jardim Paulista<br>Atibaia - SP | CEP 12947-000</p>
-          <p><strong>Telefone:</strong> (11) 4412-6677</p>
-          <iframe 
-            src="https://www.google.com/maps?q=Alameda+Professor+Lucas+Nogueira+Garcez,+3972,+Atibaia+-+SP&output=embed" 
-            width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-
-        <!-- RE/MAX VIVA II -->
-        <div class="local-card">
-          <h3>RE/MAX VIVA II</h3>
-          <p>Alameda Lucas Nogueira Garcez, 1464 - Vila Thais<br>Atibaia - SP | CEP 12942-020</p>
-          <p><strong>Telefone:</strong> (11) 97567-3838</p>
-          <iframe 
-            src="https://www.google.com/maps?q=Alameda+Lucas+Nogueira+Garcez,+1464,+Atibaia+-+SP&output=embed" 
-            width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <div class="container">
+      <div class="localizacoes-intro">
+        <h2>Onde nos encontrar</h2>
+        <p>Visite nossos escritórios em Atibaia, SP. Atendimento especializado e equipe pronta para ajudar você a encontrar o imóvel ideal.</p>
+      </div>
+  
+      <div class="localizacoes-locais">
+        <div class="local-grid">
+          <!-- RE/MAX VIVA I -->
+          <div class="local-card">
+            <h3>RE/MAX VIVA I</h3>
+            <p>Alameda Professor Lucas Nogueira Garcez, 3972 - Jardim Paulista<br>Atibaia - SP | CEP 12947-000</p>
+            <p><strong>Telefone:</strong> (11) 4412-6677</p>
+            <iframe 
+              src="https://www.google.com/maps?q=Alameda+Professor+Lucas+Nogueira+Garcez,+3972,+Atibaia+-+SP&output=embed" 
+              width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+  
+          <!-- RE/MAX VIVA II -->
+          <div class="local-card">
+            <h3>RE/MAX VIVA II</h3>
+            <p>Alameda Lucas Nogueira Garcez, 1464 - Vila Thais<br>Atibaia - SP | CEP 12942-020</p>
+            <p><strong>Telefone:</strong> (11) 97567-3838</p>
+            <iframe 
+              src="https://www.google.com/maps?q=Alameda+Lucas+Nogueira+Garcez,+1464,+Atibaia+-+SP&output=embed" 
+              width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
         </div>
       </div>
     </div>
@@ -227,7 +536,7 @@
 
   <!-- Seção de Contato -->
   <section id="contato" class="contato">
-    <div class="contato-container">
+    <div class="container">
       <h2>Fale conosco e realize o seu sonho!</h2>
       <p>Preencha os dados e nossa equipe entrará em contato para falar com você e sua família.</p>
 
@@ -251,7 +560,7 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer-container">
+    <div class="container">
       
       <!-- Coluna Esquerda do Footer -->
       <div class="footer-left">
@@ -304,10 +613,15 @@
     <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp">
   </a>
 
+  <!-- jQuery e Slick.js -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  
   <script src="js/busca-imoveis.js"></script>
   <script src="js/contato.js"></script>
   <script src="js/depoimentos.js"></script>
   <script src="js/home.js"></script>
+  <script src="js/imoveis.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/sobre.js"></script>
   <script src="js/whatsapp.js"></script>

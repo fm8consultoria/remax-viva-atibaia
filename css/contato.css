@@ -18,7 +18,7 @@
 }
 
 .contato-form {
-  max-width: 600px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -53,16 +53,15 @@
 .footer {
   background: #0f3d79;
   color: #fff;
-  padding: 50px 5% 30px;
+  padding: 50px 0 30px;
 }
 
-.footer-container {
+.footer .container {
   display: flex;
   justify-content: space-between;
   gap: 40px;
   flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
+  flex-direction: row;
 }
 
 /* Coluna Esquerda */
@@ -166,7 +165,7 @@
   }
 
   /* Footer */
-  .footer-container {
+  .footer .container {
     flex-direction: column;
     text-align: center;
     gap: 30px;

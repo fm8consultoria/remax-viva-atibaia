@@ -1,0 +1,22 @@
+{
+  "totalImoveis": 39,
+  "imoveisComErro": 0,
+  "imoveisComSucesso": 39,
+  "dataExtracao": "2025-10-15T14:47:04.863Z",
+  "tipos": [
+    "Terreno",
+    "Apartamento",
+    "Casa",
+    "Casa de Condomínio",
+    "Chácara/Sítio",
+    "Comercial",
+    "Fazenda"
+  ],
+  "cidades": [
+    "Bueno Brandao",
+    "Bom Jesus Dos Perdoes",
+    "Atibaia",
+    "Mairipora",
+    "Nazare Paulista"
+  ]
+}

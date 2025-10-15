@@ -1,6 +1,15 @@
 /* Reset básico */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* Garantir que as seções sejam visíveis */
+section[id] {
+  scroll-margin-top: 100px;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
   line-height: 1.5;
@@ -21,18 +30,18 @@ body {
   left: 0;
   width: 100%;
   background: #fff;
-  padding: 14px 0;
+  padding: 1.5rem 0;
   border-bottom: 1px solid #e6e6e6;
   z-index: 1000;
   transition: all 0.3s ease;
 }
 
 .header.shrink .logo {
-  max-height: 40px;
+  max-height: 25px;
 }
 
 :root {
-  --header-height: 88px;
+  --header-height: 70px;
 }
 
 .site-top {
@@ -44,7 +53,7 @@ body {
 
 /* Logo */
 .logo {
-  max-height: 80px;
+  max-height: 25px;
   width: auto;
   display: block;
 }
@@ -131,5 +140,10 @@ nav.primary a.active {
   .hamburger {
     display: flex;
     margin-left: auto; /* alinha à direita */
+  }
+
+  /* Logo mobile */
+  .logo {
+    max-height: 25px; /* tamanho menor no mobile */
   }
 }
