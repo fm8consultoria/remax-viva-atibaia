@@ -247,14 +247,6 @@ class BuscaImoveis {
         <div class="imovel-item-image">
           <img src="${imagem}" alt="${imovel.titulo}" loading="lazy">
           <div class="imovel-item-tag">${imovel.tipo}</div>
-          <div class="imovel-item-actions">
-            <button class="imovel-item-action" title="Favoritar">
-              <i class="fas fa-heart"></i>
-            </button>
-            <button class="imovel-item-action" title="Compartilhar">
-              <i class="fas fa-share"></i>
-            </button>
-          </div>
         </div>
         <div class="imovel-item-details">
           <div class="imovel-item-price">
@@ -269,12 +261,12 @@ class BuscaImoveis {
             ${imovel.vagas ? `<span class="imovel-item-feature"><i class="fas fa-expand-arrows-alt"></i> ${this.extrairArea(imovel.vagas)}</span>` : ''}
           </div>
           <div class="imovel-item-actions-bottom">
-            <button class="btn-ver-detalhes" onclick="buscaImoveis.verDetalhes('${imovel.id}')">
+            <a href="${imovel.url || '#'}" target="_blank" class="btn-ver-detalhes">
               Ver Detalhes
-            </button>
-            <button class="btn-contato" onclick="buscaImoveis.contatar('${imovel.telefone}')">
-              <i class="fas fa-phone"></i>
-            </button>
+            </a>
+            <a href="https://api.whatsapp.com/send?phone=5511975673838&text=Olá, tenho interesse no imóvel: ${encodeURIComponent(imovel.titulo)}" target="_blank" class="btn-contato">
+              <i class="fab fa-whatsapp"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -319,23 +311,6 @@ class BuscaImoveis {
     this.exibirTodosImoveis();
   }
 
-  verDetalhes(id) {
-    const imovel = this.imoveis.find(i => i.id === id);
-    if (imovel) {
-      // Abrir modal ou redirecionar para página de detalhes
-      alert(`Detalhes do imóvel: ${imovel.titulo}\nPreço: ${imovel.preco}\nEndereço: ${imovel.endereco}`);
-    }
-  }
-
-  contatar(telefone) {
-    if (telefone) {
-      // Abrir WhatsApp ou fazer ligação
-      const whatsappUrl = `https://wa.me/55${telefone.replace(/\D/g, '')}`;
-      window.open(whatsappUrl, '_blank');
-    } else {
-      alert('Telefone não disponível');
-    }
-  }
 }
 
 // Inicializar quando o DOM estiver pronto

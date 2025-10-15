@@ -195,38 +195,6 @@
   z-index: 2;
 }
 
-.imovel-item-actions {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  display: flex;
-  gap: 8px;
-  z-index: 2;
-}
-
-.imovel-item-action {
-  background: rgba(255, 255, 255, 0.9);
-  border: none;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-}
-
-.imovel-item-action:hover {
-  background: white;
-  transform: scale(1.1);
-}
-
-.imovel-item-action i {
-  color: #2c3e50;
-  font-size: 14px;
-}
 
 .imovel-item-details {
   padding: 20px;
@@ -313,22 +281,26 @@
   flex: 1;
   background: linear-gradient(135deg, #0c549f, #1e88e5);
   color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 8px;
+  padding: 12px 24px;
+  border-radius: 10px;
+  text-decoration: none;
   font-weight: 600;
-  cursor: pointer;
+  text-align: center;
   transition: all 0.3s ease;
-  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
 }
 
 .btn-ver-detalhes:hover {
-  background: linear-gradient(135deg, #0a4a8a, #1a7bd9);
+  background: linear-gradient(135deg, #0a4a8a, #1976d2);
   transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(12, 84, 159, 0.3);
+  color: white;
+  text-decoration: none;
 }
 
 .btn-contato {
-  background: #28a745;
+  background: #25d366;
   color: white;
   border: none;
   padding: 10px 15px;
@@ -337,11 +309,16 @@
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 0.9rem;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
 }
 
 .btn-contato:hover {
-  background: #218838;
+  background: #20ba5a;
   transform: translateY(-2px);
+  color: white;
+  text-decoration: none;
 }
 
 /* Carregar Mais */
