@@ -181,12 +181,20 @@ async function extractImovelData(page, imovelInfo) {
       // Extrair preço do seletor específico
       const precoElement = document.querySelector('#listing-price > span');
       if (precoElement) {
-        data.preco = precoElement.textContent.trim();
+        const precoTexto = precoElement.textContent.trim();
+        // Verificar se o preço é válido (não vazio e contém números)
+        if (precoTexto && precoTexto.match(/\d/)) {
+          data.preco = precoTexto;
+        } else {
+          data.preco = 'Preço sob consulta';
+        }
       } else {
         // Fallback: buscar por padrão no texto
         const precoMatch = document.body.textContent.match(/R\$\s*([\d.,]+)/i);
-        if (precoMatch) {
+        if (precoMatch && precoMatch[1] && precoMatch[1] !== '0' && precoMatch[1] !== '0,00') {
           data.preco = 'R$ ' + precoMatch[1];
+        } else {
+          data.preco = 'Preço sob consulta';
         }
       }
 
