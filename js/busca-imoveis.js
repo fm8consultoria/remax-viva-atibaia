@@ -171,8 +171,8 @@ class BuscaImoveis {
 
   extrairArea(str) {
     if (!str) return '';
-    // Extrair área mantendo a unidade (m², metros, etc.)
-    const match = str.match(/(\d+)\s*(m²|metros|m2)/i);
+    // Extrair área mantendo a unidade (m², metros, etc.) - suporta números com pontos
+    const match = str.match(/(\d{1,3}(?:\.\d{3})*(?:,\d+)?)\s*(m²|metros|m2)/i);
     return match ? match[0] : str;
   }
 
