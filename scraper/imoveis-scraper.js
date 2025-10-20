@@ -178,10 +178,16 @@ async function extractImovelData(page, imovelInfo) {
         data.titulo = tituloElement.textContent.trim();
       }
 
-      // Extrair preço
-      const precoMatch = document.body.textContent.match(/R\$\s*([\d.,]+)/i);
-      if (precoMatch) {
-        data.preco = 'R$ ' + precoMatch[1];
+      // Extrair preço do seletor específico
+      const precoElement = document.querySelector('#listing-price > span');
+      if (precoElement) {
+        data.preco = precoElement.textContent.trim();
+      } else {
+        // Fallback: buscar por padrão no texto
+        const precoMatch = document.body.textContent.match(/R\$\s*([\d.,]+)/i);
+        if (precoMatch) {
+          data.preco = 'R$ ' + precoMatch[1];
+        }
       }
 
       // NOVA ABORDAGEM: Procurar pela div listing-attributes-icons e percorrer seus elementos
