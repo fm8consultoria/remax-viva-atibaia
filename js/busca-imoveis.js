@@ -58,8 +58,7 @@ class BuscaImoveis {
     // Popular tipos de imóveis
     this.popularSelect('tipo-imovel', this.extrairValoresUnicos('tipo'));
     
-    // Popular cidades
-    this.popularSelect('cidade', this.extrairValoresUnicos('cidade'));
+    // Cidades já estão corretas no HTML - não popular dinamicamente
     
     // Popular preços (mínimo e máximo)
     this.popularPrecos();
