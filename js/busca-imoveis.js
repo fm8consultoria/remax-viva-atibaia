@@ -462,7 +462,7 @@ class BuscaImoveis {
   atualizarContador() {
     const total = this.imoveisFiltrados.length;
     const elemento = document.getElementById('total-resultados');
-    elemento.textContent = `${total} imóvel${total !== 1 ? 'is' : ''} encontrado${total !== 1 ? 's' : ''}`;
+    elemento.textContent = `${total} ${total !== 1 ? 'imóveis' : 'imóvel'} encontrado${total !== 1 ? 's' : ''}`;
   }
 
   atualizarBotaoCarregarMais() {
